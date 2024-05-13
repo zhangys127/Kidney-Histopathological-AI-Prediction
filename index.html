@@ -1,0 +1,201 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="zh-cn" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Thigh fat-free muscle volume (FFMV) estimate</title>
+
+<script src="static/jquery-1.12.4.min.js"></script>
+<script src="static/common.js"></script>
+<link rel="stylesheet" href="static/css.css" media="all">
+
+</head>
+
+<body>
+
+<div class="main-box">
+	<form action="" id="man_form" name="man_form" method="post" class="basic-grey">
+		<h1>		
+			FFMV volume estimation for male
+			<span style="color:red">
+				Age,height,weight are required. Others are optional. But more data filled in provide more accurate estimates.
+			</span>
+		</h1>
+		<label>
+			<span style="coler:red">
+				Age:<br/>(0~120years)
+			</span>
+			<input id="man_age" type="number" name="man_age" placeholder="Age(0~120years)" min="0" max="120" title="The age must be between 0 and 120"/>
+		</label>
+		<label>
+			<span>
+				Height:<br/>(50~250cm)
+			</span>
+			<input id="man_height" type="number" name="man_height" placeholder="Height(50~250cm)" min="50" max="250" title="The height must be between 50 and 250"
+			/>
+		</label>
+		<label>
+			<span>
+				Weight:<br/>(20~250kg)
+			</span>
+			<input id="man_weight" type="number" name="man_weight" placeholder="Weight(20~250kg)" min="20" max="250" title="The weight must be between 20 and 250"
+			/>
+		</label>
+		<label>
+			<span>
+				 Waist circumference:<br/>(15~250cm)
+			</span>
+			<input id="man_wc" type="number" name="man_wc" placeholder="Waist circumference(15~250cm)" min="15" max="250" title="The waist circumference must be between 15 and 250"
+			/>
+		</label>
+		<label>
+			<span>
+				Hip circumference:<br/>(15~250cm)
+			</span>
+			<input id="man_hc" type="number" name="man_hc" placeholder="Hip circumference(15~250cm)" min="15" max="250" title="The hip circumference must be between 15 and 250"
+			/>
+		</label>
+		<label>
+			<span>
+				Whole body fat mass * :<br/>(0~150kg)
+			</span>
+			<input id="man_Whole_body_fat_mass" type="number" name="man_Whole_body_fat_mass" placeholder="Whole body fat mass(0~150kg)" min="0" max="150" title="The whole body fat mass must be between 0 and 150"
+			 />
+		</label>
+		<label>
+			<span>
+				Whole body fat free mass * :<br/>(0~150kg)
+			</span>
+			<input id="man_Whole_body_fat_free_mass" type="number" name="man_Whole_body_fat_free_mass" placeholder="Whole body fat free mass(0~150kg)" min="0" max="150" title="The whole body fat free mass must be between 0 and 150"/>
+		</label>
+		<label>
+			<span>
+				Trunk fat mass * :<br/>(0~80kg)
+			</span>
+			<input id="man_Trunk_fat_mass" type="number" name="man_Trunk_fat_mass" placeholder="Trunk fat mass(0~80kg)" min="0" max="80" title="The trunk fat mass must be between 0 and 80"/>
+		</label>
+		
+		<label>
+			<span>
+				Trunk fat free mass * :<br/>(0~80kg)
+			</span>
+			<input id="man_Trunk_fat_free_mass" type="number" name="man_Trunk_fat_free_mass" placeholder="Trunk fat free mass(0~80kg)" min="0" max="40" title="The trunk fat free mass must be between 0 and 80"/>
+		</label>
+		<label>
+			<span>
+				Leg fatfree mass * :<br/>(0~40kg)
+			</span>
+			<input id="man_Leg_fatfree_mass" type="number" name="man_Leg_fatfree_mass" placeholder="Leg fatfree mass(0~40kg)" min="0" max="40" title="The leg fatfree mass must be between 0 and 40"
+			/>
+		</label>
+		<label>
+			<span>
+				Basal metabolic rate * :<br/>(500~30000kJ)
+			</span>
+			<input id="man_Basal_metabolic_rate" type="number" name="man_Basal_metabolic_rate" placeholder="Basal metabolic rate(500~30000kJ)" min="500" max="30000" title="The basal metabolic rate must be between 500 and 30000"/>
+		</label>
+		<label>
+			<span style = "width:400px;text-align:left;margin:0 0 23px 12px;">* Derived from bioeletrical impedance analysis</span>
+		</label>
+		<label>
+			<input type="button" class="button" id="man_button" title="Please click the button to calculate" name="man_button" value="Calculate(please click)" onclick="getRisk('man')"/>
+		</label>
+		
+		<div style="display:none;margin-top: 20px" class="explain" id="man_result_span">
+			<div>
+				result:
+			</div>
+			<div id="man_result_info"></div>
+		</div>
+		<div class="download-box">			
+			<div class="download-input">	
+				For batch calculation, please download the CSV template and prepare the data as the required format.
+				<button type="button" class="button" name="seach" onclick="FuncCSVInport(1)" title="Uploading a CVS file">Batch Calculate</button>
+				<input type="file" accept=".csv" id="csvFileInput_1" onchange="readCSVFile(this,'FFMV',1)" style="display:none;"/>		
+			</div>		
+			<div>
+				<img src="static/download.png" title="Download the CSV template" onclick="downloadCvsTemplate();"/>
+			</div>
+		</div>
+	</form>
+
+	
+</div>
+<div class="mask hide"> 
+ <div class="prompt_box">
+  <div class="prompt_title">
+   <h3>System dialog box</h3>
+   <span class="prompt_cancel">X</span>
+  </div>
+  <div class="prompt_cont">
+   <p class="prompt_text"></p>
+   <span class="prompt_sure">OK</span>
+  </div>
+ </div> 
+</div>
+<script type="text/javascript">
+
+	
+	function getRisk(gender){
+		Objgender = gender;
+		if(gender == "woman"){
+			sex = 0;
+		}
+		Obj_Age = $("#" + gender + "_age");	
+		Obj_Height = $("#" + gender + "_height");
+		Obj_Weight = $("#" + gender + "_weight");
+		Obj_WC = $("#" + gender + "_wc");
+		Obj_HC = $("#" + gender + "_hc");
+		Obj_Whole_body_fat_mass = $("#" + gender + "_Whole_body_fat_mass");
+		Obj_Whole_body_fat_free_mass = $("#" + gender + "_Whole_body_fat_free_mass");
+		Obj_Trunk_fat_mass = $("#" + gender + "_Trunk_fat_mass");
+		Obj_Trunk_fat_free_mass = $("#" + gender + "_Trunk_fat_free_mass");
+		Obj_Leg_fatfree_mass = $("#" + gender + "_Leg_fatfree_mass");
+		Obj_Basal_metabolic_rate = $("#" + gender + "_Basal_metabolic_rate");
+		
+		Age = $(Obj_Age).val();	
+		Height = $(Obj_Height).val();
+		Weight = $(Obj_Weight).val();
+		WC = $(Obj_WC).val();
+		HC = $(Obj_HC).val();
+		Whole_body_fat_mass = $(Obj_Whole_body_fat_mass).val();
+		Whole_body_fat_free_mass = $(Obj_Whole_body_fat_free_mass).val();
+		Trunk_fat_mass = $(Obj_Trunk_fat_mass).val();
+		Trunk_fat_free_mass = $(Obj_Trunk_fat_free_mass).val();
+		Leg_fatfree_mass = $(Obj_Leg_fatfree_mass).val();
+		Basal_metabolic_rate = $(Obj_Basal_metabolic_rate).val();
+		
+		//必填验证
+		if(!checkForm1()){
+			return false;
+		}
+		var result = "";
+		//公式3
+		if(!checkForm2_isnull() && !checkForm3_isnull()){
+			if(checkForm2_scope() && checkForm3_scope()){
+				result = compute_ffmv(sex,3,Age,Height,Weight,WC,HC,Whole_body_fat_mass,Whole_body_fat_free_mass,Trunk_fat_mass,Trunk_fat_free_mass,Leg_fatfree_mass,Basal_metabolic_rate);
+			}
+		//公式2
+		}else if(!checkForm2_isnull()){
+			if(checkForm2_scope()){
+				result = compute_ffmv(sex,2,Age,Height,Weight,WC,HC,Whole_body_fat_mass,Whole_body_fat_free_mass,Trunk_fat_mass,Trunk_fat_free_mass,Leg_fatfree_mass,Basal_metabolic_rate);
+			}
+		//公式1
+		}else {		
+			result = compute_ffmv(sex,1,Age,Height,Weight,WC,HC,Whole_body_fat_mass,Whole_body_fat_free_mass,Trunk_fat_mass,Trunk_fat_free_mass,Leg_fatfree_mass,Basal_metabolic_rate);			
+		}
+		$("#" + gender + "_result_info").html(result + "L");
+		$("#" + gender + "_result_span").fadeIn("slow");
+		init();
+	}
+		
+
+</script>
+
+</body>
+
+</html>
