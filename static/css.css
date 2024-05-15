@@ -60,7 +60,7 @@ body{
 }
 .basic-grey input[type="text"],.basic-grey input[type="number"] {
 	border:1px solid #DADADA;
-	color:#888;
+	color:#1e4e7b;
 	height:30px;
 	margin-bottom:16px;
 	margin-right:6px;
@@ -68,7 +68,7 @@ body{
 	outline:0 none;
 	padding:3px 3px 3px 5px;
 	width:65%;
-	font-size:12px;
+	font-size:16px;
 	line-height:15px;
 	box-shadow:inset 0px 1px 4px #ECECEC;
 	-moz-box-shadow:inset 0px 1px 4px #ECECEC;
