@@ -62,22 +62,22 @@ function getRisk(){
 		
 		Age = $("#Age").val();
 		Female =$("input[name='Female']:checked").val();	
-		HBP1 = $("#HBP1").val();	
+		HBP1 = $("input[name='HBP1']:checked").val();	
 		HGB = $("#HGB").val();	
 		PLT = $("#PLT").val();
 		ALB = $("#ALB").val();	
 		hsCRP = $("#hsCRP").val();	
 		C3 = $("#C3").val();	
 		ESR = $("#ESR").val();	
-		anti_dsDNA1 = $("#anti_dsDNA1").val();	
-		Hematuresis1 = $("#Hematuresis1").val();	
+		anti_dsDNA1 = $("input[name='anti_dsDNA1']:checked").val();		
+		Hematuresis1 = $("input[name='Hematuresis1']:checked").val();	
 		_24hUTP = $("#_24hUTP").val();	
 		eGFR = $("#eGFR").val();	
 		Leukocyte = $("#Leukocyte").val();	
 		sCr = $("#sCr").val();	
 		UA = $("#UA").val();	
 		C4 = $("#C4").val();		
-		ANA = $("#ANA").val();
+		ANA = $("input[name='ANA']:checked").val();
 		
 		//必填验证
 		if(!checkForm1()){
@@ -86,17 +86,17 @@ function getRisk(){
 		var result = "";
 		//公式4
 		if(!checkForm4_isnull()){
-				result = compute(4,Age,Female,HBP1,HGB,PLT,ALB,hsCRP,C3,ESR,anti_dsDNA1,Hematuresis1,_24hUTP,eGFR,Leukocyte,sCr,UA,C4,ANA);
+				result = compute(4);
 				
 		//公式3
 		} else if(!checkForm3_isnull()){
-				result = compute(3,Age,Female,HBP1,HGB,PLT,ALB,hsCRP,C3,ESR,anti_dsDNA1,Hematuresis1,_24hUTP,eGFR,Leukocyte,sCr,UA,C4,ANA);
+				result = compute(3);
 		//公式2
 		}else if(!checkForm2_isnull()){
-				result = compute(2,Age,Female,HBP1,HGB,PLT,ALB,hsCRP,C3,ESR,anti_dsDNA1,Hematuresis1,_24hUTP,eGFR,Leukocyte,sCr,UA,C4,ANA);
+				result = compute(2);
 		//公式1
 		}else {		
-			result = compute(1,Age,Female,HBP1,HGB,PLT,ALB,hsCRP,C3,ESR,anti_dsDNA1,Hematuresis1,_24hUTP,eGFR,Leukocyte,sCr,UA,C4,ANA);	
+			result = compute(1);	
 		}
 		$("#result_info").html(result);
 		$("#result_span").fadeIn("slow");
@@ -110,29 +110,27 @@ function checkForm1() {
 			$(Obj_Age).focus();
 			return false;
 		}
-		if ($("input[name='Female']:checked").val()==null || $("input[name='Female']:checked").val()==undefined ) {
-			$("#radio_span").html("Whether the participant is a female");
-			$("#radio_span").focus();
-			$("[name='Female']").focus();
+		if (Female==null || Female=="" || Female==undefined ) {
+			$("#radio_span").html("Whether the participant is a female");			
 			$('html, body').animate({
 				scrollTop: 0
 			  }, -1000);
 			return false;
 		}else{			
-			$("#radio_span").html("");
+			$("#radio_span").html("&nbsp;");
 		}
 		
 		return true;
 }
 function checkForm2_isnull() {	
-	if ($(Obj_HBP1).val()==null || $(Obj_HBP1).val()=="" || 
-		$(Obj_HGB).val()==null || $(Obj_HGB).val()=="" || 
-		$(Obj_PLT).val()==null ||  $(Obj_PLT).val()=="" || 
-		$(Obj_ALB).val()==null || $(Obj_ALB).val()=="" || 
-		$(Obj_hsCRP).val()==null ||  $(Obj_hsCRP).val()=="" || 
-		$(Obj_C3).val()==null ||  $(Obj_C3).val()=="" || 
-		$(Obj_ESR).val()==null ||  $(Obj_ESR).val()=="" || 
-		$(Obj_anti_dsDNA1).val()==null || $(Obj_anti_dsDNA1).val()=="" 
+	if (HBP1==null || HBP1=="" || HBP1==undefined || 
+		HGB==null || HGB=="" || 
+		PLT==null || PLT=="" || 
+		ALB==null || ALB=="" || 
+		hsCRP==null || hsCRP=="" || 
+		C3==null || C3=="" || 
+		ESR==null || ESR=="" || 
+		anti_dsDNA1==null || anti_dsDNA1=="" || anti_dsDNA1==undefined
 		){
 			return true;
 	}           
@@ -140,46 +138,45 @@ function checkForm2_isnull() {
 }
 
 function checkForm3_isnull() {	
-	if ($(Obj_HBP1).val()==null || $(Obj_HBP1).val()=="" ||
-		$(Obj_HGB).val()==null || $(Obj_HGB).val()=="" ||
-		$(Obj_PLT).val()==null ||  $(Obj_PLT).val()=="" ||
-		$(Obj_ALB).val()==null || $(Obj_ALB).val()=="" ||
-		$(Obj_hsCRP).val()==null ||  $(Obj_hsCRP).val()=="" ||
-		$(Obj_C3).val()==null ||  $(Obj_C3).val()=="" ||
-		$(Obj_ESR).val()==null ||  $(Obj_ESR).val()=="" ||
-		$(Obj_anti_dsDNA1).val()==null ||  $(Obj_anti_dsDNA1).val()=="" ||
-		$(Obj_Hematuresis1).val()==null ||  $(Obj_Hematuresis1).val()=="" ||
-		$(Obj__24hUTP).val()==null ||  $(Obj__24hUTP).val()=="" ||
-		$(Obj_eGFR).val()==null || $(Obj_eGFR).val()==""){
+	if (HBP1==null || HBP1=="" || HBP1==undefined || 
+		HGB==null || HGB=="" || 
+		PLT==null || PLT=="" || 
+		ALB==null || ALB=="" || 
+		hsCRP==null || hsCRP=="" || 
+		C3==null || C3=="" || 
+		ESR==null || ESR=="" || 
+		anti_dsDNA1==null || anti_dsDNA1=="" || anti_dsDNA1==undefined ||
+		Hematuresis1==null || Hematuresis1=="" || Hematuresis1 == undefined ||
+		_24hUTP==null || _24hUTP=="" ||
+		eGFR==null || eGFR==""){
 			return true;
 	}           
 	return false;
 }
 
 function checkForm4_isnull() {	
-	if ($(Obj_HBP1).val()==null || $(Obj_HBP1).val()=="" || 
-		$(Obj_HGB).val()==null || $(Obj_HGB).val()=="" || 
-		$(Obj_PLT).val()==null ||  $(Obj_PLT).val()=="" || 
-		$(Obj_ALB).val()==null || $(Obj_ALB).val()=="" || 
-		$(Obj_hsCRP).val()==null ||  $(Obj_hsCRP).val()=="" || 
-		$(Obj_C3).val()==null ||  $(Obj_C3).val()=="" || 
-		$(Obj_ESR).val()==null ||  $(Obj_ESR).val()=="" || 
-		$(Obj_anti_dsDNA1).val()==null ||  $(Obj_anti_dsDNA1).val()=="" || 
-		$(Obj_Hematuresis1).val()==null ||  $(Obj_Hematuresis1).val()=="" || 
-		$(Obj__24hUTP).val()==null ||  $(Obj__24hUTP).val()=="" || 
-		$(Obj_eGFR).val()==null ||  $(Obj_eGFR).val()=="" || 
-		$(Obj_Leukocyte).val()==null || $(Obj_Leukocyte).val()=="" || 
-		$(Obj_sCr).val()==null ||  $(Obj_sCr).val()=="" || 
-		$(Obj_UA).val()==null ||  $(Obj_UA).val()=="" || 
-		$(Obj_C4).val()==null ||  $(Obj_C4).val()=="" || 
-		$(Obj_ANA).val()==null || $(Obj_ANA).val()==""){
+	if (HBP1==null || HBP1=="" || HBP1==undefined || 
+		HGB==null || HGB=="" || 
+		PLT==null || PLT=="" || 
+		ALB==null || ALB=="" || 
+		hsCRP==null || hsCRP=="" || 
+		C3==null || C3=="" || 
+		ESR==null || ESR=="" || 
+		anti_dsDNA1==null || anti_dsDNA1=="" || anti_dsDNA1==undefined ||
+		Hematuresis1==null || Hematuresis1=="" || Hematuresis1 == undefined ||
+		_24hUTP==null || _24hUTP=="" ||
+		eGFR==null || eGFR=="" || 
+		Leukocyte==null || Leukocyte=="" || 
+		sCr==null || sCr=="" || 
+		UA==null || UA=="" || 
+		C4==null || C4=="" || 
+		ANA==null || ANA=="" || ANA==undefined){
 		return true;
 	}           
 	return false;
 }
 
-function compute(Model,Age,Female,HBP1,HGB,PLT,ALB,hsCRP,C3,ESR,anti_dsDNA1,Hematuresis1,_24hUTP,eGFR,Leukocyte,sCr,UA,C4,ANA){	
-alert(Model);
+function compute(Model){
 	var FFMV = "";
 	if(Model==1){		
 		FFMV = 3.43 + (-1.15) * Math.log(Age) + (-1.00) * Female;

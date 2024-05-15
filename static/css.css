@@ -1,5 +1,10 @@
 body{
-	background-image:url(bak.jpeg)
+	  background-image:url(bak.jpeg);
+	  background-position: center center;
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+	  background-size: cover;
+	  height: 100%;
 }
 .main-box{
 	width: auto;
@@ -71,7 +76,7 @@ body{
 }
 
 .basic-grey .button {
-	background:#0969da;
+	background:#063e81;
 	border:none;
 	padding:10px 25px 10px 25px;
 	color:#FFF;
@@ -208,7 +213,7 @@ body{
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	background-color: #299;
+	background-color: #1277f1;
 	border-radius: 50%;
 	display: none;
 }
@@ -218,11 +223,11 @@ body{
 }
 /* 切换自定义单选框border颜色 */
 .femaleradio input[type="radio"]:checked+.radio {
-	border-color: #299;
+	border-color: #1277f1;
 }
 
 /* 选中时，文本加颜色 */
 .femaleradio input[type="radio"]:checked~.item {
-	color: #199;
+	color: #1277f1;
 }
 		
