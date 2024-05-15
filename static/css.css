@@ -1,6 +1,8 @@
-
+body{
+	background-image:url(bak.jpeg)
+}
 .main-box{
-	width: 1300px;
+	width: auto;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -8,25 +10,25 @@
 .basic-grey {
 	margin-left:auto;
 	margin-right:auto;
-	max-width:970px;
-	background:#f6f6f6;
+	max-width:980px;
+	background:#032941bf;
 	padding:25px 15px 25px 10px;
-	font:12px Georgia,"Times New Roman",Times,serif;
+	font:16px Georgia,"Times New Roman",Times,serif;
 	color:#888;
-	text-shadow:1px 1px 1px #FFF;
-	border:1px solid #E4E4E4;
+	/*text-shadow:1px 1px 1px #FFF;*/
+	border:0px solid #E4E4E4;
 	display: inline-block;
-	width:580px;
+	width:800px;
 	margin:10px;
 }
 
 .basic-grey h1 {
-	font-size:25px;
-	padding:0px 0px 10px 40px;
+	font-size:36px;
+	padding:15px 0px 35px 56px;
 	display:block;
 	border-bottom:1px solid #E4E4E4;
-	margin:-10px -15px 11px -10px;
-	color:#888;
+	margin:-10px -15px 35px -10px;
+	color:#fff;
 	text-align: left;
 	
 }
@@ -45,11 +47,11 @@
 }
 .basic-grey label>span {
 	float:left;
-	width:26%;
+	width:16%;
 	text-align:right;
 	padding-right:10px;
 	margin-top:10px;
-	color:#888;
+	color:#fff;
 }
 .basic-grey input[type="text"],.basic-grey input[type="number"] {
 	border:1px solid #DADADA;
@@ -67,6 +69,7 @@
 	-moz-box-shadow:inset 0px 1px 4px #ECECEC;
 	-webkit-box-shadow:inset 0px 1px 4px #ECECEC;
 }
+
 .basic-grey .button {
 	background:#0969da;
 	border:none;
@@ -169,3 +172,57 @@
 .show{
 	display:block;
 }
+
+.femaleradio{
+	margin-left:108px;
+	outline:0 none;
+	padding:0px 3px 3px 65px;
+	width:30%;
+	
+}
+
+
+/* 把单选框隐藏 */
+.femaleradio input[type="radio"] {
+	display: none;
+}
+/* 自定义单选框初始样式 */
+.femaleradio .radio {
+	display: inline-block;
+	position: relative;
+	width: 7px;
+	height: 16px;
+	border-radius: 50%;
+	border: 2px solid #777;
+	vertical-align: -4px;
+	margin-left:10px;
+}
+/* 自定义单选框选中样式 初始隐藏*/
+.femaleradio .radio::after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #299;
+	border-radius: 50%;
+	display: none;
+}
+/* 显示自定义单选框 */
+.femaleradio input[type="radio"]:checked+.radio::after {
+	display: block;
+}
+/* 切换自定义单选框border颜色 */
+.femaleradio input[type="radio"]:checked+.radio {
+	border-color: #299;
+}
+
+/* 选中时，文本加颜色 */
+.femaleradio input[type="radio"]:checked~.item {
+	color: #199;
+}
+		
