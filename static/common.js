@@ -91,8 +91,9 @@ function getRisk(){
 		//} else if(!checkForm3_isnull()){
 		//		result = compute(3);
 		//公式2
-		}else if(!checkForm2_isnull()){
-				result = compute(2);
+		//}else if(!checkForm2_isnull()){
+		}else{	
+			result = compute(2);
 		//公式1
 		//}else {		
 		//	result = compute(1);	
@@ -128,6 +129,63 @@ function checkForm1() {
 			$("#HBP1_radio_span").html("&nbsp;");
 		}
 		
+		if (HGB!=null && HGB!="") {
+			$(Obj_HGB).css("border", "");
+		} else {
+			$(Obj_HGB).css("border", "1px solid red");
+			$(Obj_HGB).focus();
+			return false;
+		}
+		
+		if (PLT!=null && PLT!="") {
+			$(Obj_PLT).css("border", "");
+		} else {
+			$(Obj_PLT).css("border", "1px solid red");
+			$(Obj_PLT).focus();
+			return false;
+		}
+		
+		if (ALB!=null && ALB!="") {
+			$(Obj_ALB).css("border", "");
+		} else {
+			$(Obj_ALB).css("border", "1px solid red");
+			$(Obj_ALB).focus();
+			return false;
+		}
+		
+		if (hsCRP!=null && hsCRP!="") {
+			$(Obj_hsCRP).css("border", "");
+		} else {
+			$(Obj_hsCRP).css("border", "1px solid red");
+			$(Obj_hsCRP).focus();
+			return false;
+		}
+		
+		if (C3!=null && C3!="") {
+			$(Obj_C3).css("border", "");
+		} else {
+			$(Obj_C3).css("border", "1px solid red");
+			$(Obj_C3).focus();
+			return false;
+		}
+		
+		if (ESR!=null && ESR!="") {
+			$(Obj_ESR).css("border", "");
+		} else {
+			$(Obj_ESR).css("border", "1px solid red");
+			$(Obj_ESR).focus();
+			return false;
+		}
+		
+		if (anti_dsDNA1==null || anti_dsDNA1=="" || anti_dsDNA1==undefined ) {
+			$("#anti_dsDNA1_radio_span").html("Whether the participant has high blood pressure");			
+			$('html, body').animate({
+				scrollTop: 0
+			  }, -1000);
+			return false;
+		}else{			
+			$("#anti_dsDNA1_radio_span").html("&nbsp;");
+		}
 		
 		return true;
 }
