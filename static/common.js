@@ -86,17 +86,16 @@ function getRisk(){
 		var result = "";
 		//公式4
 		if(!checkForm4_isnull()){
-				result = compute(4);
-				
+				result = compute(4);				
 		//公式3
-		} else if(!checkForm3_isnull()){
-				result = compute(3);
+		//} else if(!checkForm3_isnull()){
+		//		result = compute(3);
 		//公式2
 		}else if(!checkForm2_isnull()){
 				result = compute(2);
 		//公式1
-		}else {		
-			result = compute(1);	
+		//}else {		
+		//	result = compute(1);	
 		}
 		$("#result_info").html(result);
 		$("#result_span").fadeIn("slow");
@@ -119,6 +118,16 @@ function checkForm1() {
 		}else{			
 			$("#radio_span").html("&nbsp;");
 		}
+		if (HBP1==null || HBP1=="" || HBP1==undefined ) {
+			$("#HBP1_radio_span").html("Whether the participant has high blood pressure");			
+			$('html, body').animate({
+				scrollTop: 0
+			  }, -1000);
+			return false;
+		}else{			
+			$("#HBP1_radio_span").html("&nbsp;");
+		}
+		
 		
 		return true;
 }
