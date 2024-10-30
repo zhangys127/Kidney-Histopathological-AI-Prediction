@@ -28,11 +28,11 @@
 			</span>
 			<input id="Age" type="number" name="Age" placeholder="Age(0~120years)" min="0" max="120" title="The age must be between 0 and 120"/>
 		</label>
-		<label style="margin-bottom:-18px;">
+		<label style="margin-bottom:30px;">
 			<span>
 				Female:<br/>
 			</span>	
-			<div class="femaleradio" title="Whether the participant is a female">
+			<div class="radiodiv femaleradio" title="Whether the participant is a female">
 				 <label class="f_radio">
 					<input type="radio" name="Female" id="Female" value="1">
 					<span class="radio"></span>
@@ -43,17 +43,15 @@
 					<span class="radio"></span>
 					<span class="item">NO</span>
 				</label>
-				<p style="width:430px;color:red;padding-top:10px" 
-				id="radio_span">&nbsp;</p>
 			</div>
 			
 			<br/>
 		</label>
-		<label style="padding-bottom:30px;">
+		<label style="margin-bottom:40px;">
 			<span>
 				Hypertension :<br/><!--HBP1-->
 			</span>			
-				<div class="femaleradio" title="Whether the participant has high blood pressure">
+				<div class="radiodiv Hypertension_radio" title="Whether the participant has high blood pressure">
 					 <label class="f_radio">
 						<input type="radio" name="HBP1" id="HBP1" value="1">
 						<span class="radio"></span>
@@ -63,9 +61,7 @@
 						<input type="radio" name="HBP1" id="HBP1" value="0">
 						<span class="radio"></span>
 						<span class="item">NO</span>
-					</label>
-					<p style="width:430px;color:red;padding-top:10px" 
-						id="HBP1_radio_span">&nbsp;</p>					
+					</label>			
 				</div>				
 				<br/>
 		</label>
@@ -84,8 +80,8 @@
 			/>
 		</label>
 		<label>
-			<span>
-				sALB (g/L) （serum albumin）:<br/><!--ALB-->
+			<span style="margin-top:0px">
+				sALB (g/L) <br/>（serum albumin）:<br/><!--ALB-->
 			</span>
 			<input id="ALB" type="number" name="ALB" placeholder="albumin" title="albumin"
 			 />
@@ -109,11 +105,11 @@
 			</span>
 			<input id="ESR" type="number" name="ESR" placeholder="erythrocyte sedimentation rate" title="erythrocyte sedimentation rate"/>
 		</label>
-		<label style="padding-bottom:30px;">
+		<label style="margin-bottom:30px;">
 			<span>
 				anti-dsDNA positive :<br/><!--anti-dsDNA1-->
 			</span>			
-			<div class="femaleradio" title="Whether the participant’s ds-DNA is higher than 100IU/mL">
+			<div class="radiodiv anti_dsDNA_radio"  title="Whether the participant’s ds-DNA is higher than 100IU/mL">
 				 <label class="f_radio">
 					<input type="radio" name="anti_dsDNA1" id="anti_dsDNA1" value="1">
 					<span class="radio"></span>
@@ -123,9 +119,7 @@
 					<input type="radio" name="anti_dsDNA1" id="anti_dsDNA1" value="0">
 					<span class="radio"></span>
 					<span class="item">NO</span>
-				</label>
-				<p style="width:430px;color:red;padding-top:10px" 
-						id="anti_dsDNA1_radio_span">&nbsp;</p>						
+				</label>						
 			</div>				
 			<br/>
 		</label>
@@ -133,7 +127,7 @@
 			<span>
 				Hematuria :<br/><!--Hematuresis1-->
 			</span>				
-			<div class="femaleradio" title="Whether the participant has hematuresis">
+			<div class="radiodiv" title="Whether the participant has hematuresis">
 				 <label class="f_radio">
 					<input type="radio" name="Hematuresis1" id="Hematuresis1" value="1">
 					<span class="radio"></span>
@@ -154,8 +148,8 @@
 			<input id="_24hUTP" type="number" name="_24hUTP" placeholder="24 hour urine total protein" title="24 hour urine total protein"/>
 		</label>
 		<label>
-			<span>
-				eGFR (ml/min/1.73m2, CKD-EPI) :<br/>
+			<span style="margin-top:0px">
+				eGFR <br/>(ml/min/1.73m2, CKD-EPI) :<br/>
 			</span>
 			<input id="eGFR" type="number" name="eGFR" placeholder="estimate glomerular filtration rate" title="estimate glomerular filtration rate"/>
 		</label>
@@ -188,7 +182,7 @@
 			<span>
 				ANA positive :<br/><!--ANA-->
 			</span>
-			<div class="femaleradio" title="Whether the participant’s ANA of patient is higher than or equal to 1:100">
+			<div class="radiodiv" title="Whether the participant’s ANA of patient is higher than or equal to 1:100">
 				 <label class="f_radio">
 					<input type="radio" name="ANA" id="ANA" value="1">
 					<span class="radio"></span>
@@ -236,7 +230,9 @@ $(document).ready(function() {
     } else {
       $(this).parent().removeClass('selected');
     }
-	$("#radio_span").html("&nbsp;");
+	$(".femaleradio span").css("color","white");
+	$(".Hypertension_radio span").css("color","white");
+	$(".anti_dsDNA_radio span").css("color","white");
   });
 });		
 

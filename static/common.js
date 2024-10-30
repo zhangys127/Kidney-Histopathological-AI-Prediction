@@ -86,7 +86,7 @@ function getRisk(){
 		var result = "";
 		//公式4
 		if(!checkForm4_isnull()){
-				result = compute(4);				
+			result = compute(4);				
 		//公式3
 		//} else if(!checkForm3_isnull()){
 		//		result = compute(3);
@@ -106,33 +106,30 @@ function checkForm1() {
 		if (Age!=null && Age!="" && Age>=0 && Age<=120 ) {
 			$(Obj_Age).css("border", "");
 		} else {
-			$(Obj_Age).css("border", "1px solid red");
+			$(Obj_Age).css("border", "2px solid red");
 			$(Obj_Age).focus();
 			return false;
 		}
 		if (Female==null || Female=="" || Female==undefined ) {
-			$("#radio_span").html("Whether the participant is a female");			
+			$(".femaleradio span").css("color","red");			
 			$('html, body').animate({
 				scrollTop: 0
 			  }, -1000);
 			return false;
-		}else{			
-			$("#radio_span").html("&nbsp;");
 		}
+		
 		if (HBP1==null || HBP1=="" || HBP1==undefined ) {
-			$("#HBP1_radio_span").html("Whether the participant has high blood pressure");			
+			$(".Hypertension_radio span").css("color","red");			
 			$('html, body').animate({
 				scrollTop: 0
 			  }, -1000);
 			return false;
-		}else{			
-			$("#HBP1_radio_span").html("&nbsp;");
 		}
 		
 		if (HGB!=null && HGB!="") {
 			$(Obj_HGB).css("border", "");
 		} else {
-			$(Obj_HGB).css("border", "1px solid red");
+			$(Obj_HGB).css("border", "2px solid red");
 			$(Obj_HGB).focus();
 			return false;
 		}
@@ -140,7 +137,7 @@ function checkForm1() {
 		if (PLT!=null && PLT!="") {
 			$(Obj_PLT).css("border", "");
 		} else {
-			$(Obj_PLT).css("border", "1px solid red");
+			$(Obj_PLT).css("border", "2px solid red");
 			$(Obj_PLT).focus();
 			return false;
 		}
@@ -148,7 +145,7 @@ function checkForm1() {
 		if (ALB!=null && ALB!="") {
 			$(Obj_ALB).css("border", "");
 		} else {
-			$(Obj_ALB).css("border", "1px solid red");
+			$(Obj_ALB).css("border", "2px solid red");
 			$(Obj_ALB).focus();
 			return false;
 		}
@@ -156,7 +153,7 @@ function checkForm1() {
 		if (hsCRP!=null && hsCRP!="") {
 			$(Obj_hsCRP).css("border", "");
 		} else {
-			$(Obj_hsCRP).css("border", "1px solid red");
+			$(Obj_hsCRP).css("border", "2px solid red");
 			$(Obj_hsCRP).focus();
 			return false;
 		}
@@ -164,7 +161,7 @@ function checkForm1() {
 		if (C3!=null && C3!="") {
 			$(Obj_C3).css("border", "");
 		} else {
-			$(Obj_C3).css("border", "1px solid red");
+			$(Obj_C3).css("border", "2px solid red");
 			$(Obj_C3).focus();
 			return false;
 		}
@@ -172,19 +169,17 @@ function checkForm1() {
 		if (ESR!=null && ESR!="") {
 			$(Obj_ESR).css("border", "");
 		} else {
-			$(Obj_ESR).css("border", "1px solid red");
+			$(Obj_ESR).css("border", "2px solid red");
 			$(Obj_ESR).focus();
 			return false;
 		}
 		
 		if (anti_dsDNA1==null || anti_dsDNA1=="" || anti_dsDNA1==undefined ) {
-			$("#anti_dsDNA1_radio_span").html("Whether the participant has high blood pressure");			
+			$(".anti_dsDNA_radio span").css("color","red");					
 			$('html, body').animate({
-				scrollTop: 0
+				scrollTop: 500
 			  }, -1000);
 			return false;
-		}else{			
-			$("#anti_dsDNA1_radio_span").html("&nbsp;");
 		}
 		
 		return true;
