@@ -24,13 +24,13 @@
 		</h1>
 		<label>
 			<span style="coler:red">
-				Age:<br/>
+				Age *:<br/>
 			</span>
 			<input id="Age" type="number" name="Age" placeholder="Age(0~120years)" min="0" max="120" title="The age must be between 0 and 120"/>
 		</label>
 		<label style="margin-bottom:30px;">
 			<span>
-				Female:<br/>
+				Female *:<br/>
 			</span>	
 			<div class="radiodiv femaleradio" title="Whether the participant is a female">
 				 <label class="f_radio">
@@ -49,7 +49,7 @@
 		</label>
 		<label style="margin-bottom:40px;">
 			<span>
-				Hypertension :<br/><!--HBP1-->
+				Hypertension * :<br/><!--HBP1-->
 			</span>			
 				<div class="radiodiv Hypertension_radio" title="Whether the participant has high blood pressure">
 					 <label class="f_radio">
@@ -67,47 +67,47 @@
 		</label>
 		<label>
 			<span>
-				 HGB (g/L):<br/>
+				 HGB (g/L) *:<br/>
 			</span>
 			<input id="HGB" type="number" name="HGB" placeholder="hemoglobin" title="hemoglobin"
 			/>
 		</label>
 		<label>
 			<span>
-				PLT (×10<sup>9</sup>/L):<br/>
+				PLT (×10<sup>9</sup>/L) *:<br/>
 			</span>
 			<input id="PLT" type="number" name="PLT" placeholder="blood platelet" title="blood platelet"
 			/>
 		</label>
 		<label>
 			<span style="margin-top:0px">
-				sALB (g/L) <br/>（serum albumin）:<br/><!--ALB-->
+				sALB (g/L) <br/>（serum albumin） *:<br/><!--ALB-->
 			</span>
 			<input id="ALB" type="number" name="ALB" placeholder="albumin" title="albumin"
 			 />
 		</label>
 		<label>
 			<span>
-				hsCRP (mg/L) :<br/>
+				hsCRP (mg/L)  *:<br/>
 			</span>
 			<input id="hsCRP" type="number" name="hsCRP" placeholder="high-sensitivity C-reactive protein" title="high-sensitivity C-reactive protein"/>
 		</label>
 		<label>
 			<span>
-				C3 (g/L):<br/>
+				C3 (g/L) *:<br/>
 			</span>
 			<input id="C3" type="number" name="C3" placeholder="complement 3" title="complement 3"/>
 		</label>
 		
 		<label>
 			<span>
-				ESR (mm/h) :<br/>
+				ESR (mm/h) * :<br/>
 			</span>
 			<input id="ESR" type="number" name="ESR" placeholder="erythrocyte sedimentation rate" title="erythrocyte sedimentation rate"/>
 		</label>
 		<label style="margin-bottom:30px;">
 			<span>
-				anti-dsDNA positive :<br/><!--anti-dsDNA1-->
+				anti-dsDNA positive * :<br/><!--anti-dsDNA1-->
 			</span>			
 			<div class="radiodiv anti_dsDNA_radio"  title="Whether the participant’s ds-DNA is higher than 100IU/mL">
 				 <label class="f_radio">
@@ -155,7 +155,7 @@
 		</label>
 		<label>
 			<span>
-				Leukocyte (×109/L) :<br/>
+				Leukocyte (×10<sup>9</sup>/L) :<br/>
 			</span>
 			<input id="Leukocyte" type="number" name="Leukocyte" placeholder="" title=""/>
 		</label>
@@ -207,7 +207,11 @@
 			<div id="result_info"></div>
 		</div>
 		
+		<p style="text-align:left;margin:30px 0 0 50px ">
+			*Required indicators, based on which the model can predict whether the patient has high activity of kidney disease. If all indicators are provided, a more complex Lasso regression model will be used to predict whether the patient has high activity of kidney disease.
+		</p>
 	</form>	
+	
 </div>
 <div class="mask hide"> 
  <div class="prompt_box">
@@ -221,6 +225,7 @@
   </div>
  </div> 
 </div>
+
 <script type="text/javascript">
 
 $(document).ready(function() {
