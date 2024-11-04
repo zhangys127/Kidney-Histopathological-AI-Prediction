@@ -249,7 +249,22 @@ function compute(Model){
 	}else if(Model==4){		
 		FFMV = 5.02+(-0.88) * Math.log(Age) + (-0.62) * Female + (0.02) * HBP1 + (0) * Math.log(Leukocyte) + (-0.67) * Math.log(HGB) + (0.03) * Math.sqrt(PLT) + (1.60) * Hematuresis1 + (0) * Math.log(_24hUTP) + (-0.41) * Math.sqrt(ALB) + (0) * Math.log(sCr) + (-0.01) * eGFR + (0) * Math.sqrt(UA) + (0.05) * Math.log(hsCRP) + (0) * Math.sqrt(C3) + (-0.52) * Math.log(C4) + (0.03) * Math.sqrt(ESR) + (-0.23) * ANA + (0.17) * anti_dsDNA1;	
 	}
-	return FFMV.toFixed(3);
+	FFMV =  FFMV.toFixed(3);
+	var rul = "";
+	if(Model==2){
+		if(FFMV >= 0.22){
+			rul = "High AI";
+		}else{
+			rul =  "Mild or moderate AI";
+		}
+	}else if(Model==4){
+		if(FFMV >= 0.21){
+			rul =  "High AI";
+		}else{
+			rul =  "Mild or moderate AI";
+		}
+	}
+	return rul;
 }
 
 function csvToObject(csvString){
